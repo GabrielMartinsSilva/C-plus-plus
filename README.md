@@ -1,1 +1,1 @@
-C plus plus
+C++ studies repository for the information systems course
