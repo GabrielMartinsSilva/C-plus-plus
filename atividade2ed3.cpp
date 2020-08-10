@@ -87,7 +87,7 @@ public:
 int main()
 {
     string nome;
-	lista alunos("Gabriel");    
+	lista alunos;    
     cout << "Digite o nome que você deseja inserir no inicio da lista" << endl;  
     while(cin >> nome != 0){     
     alunos.inserirInicio(nome);
