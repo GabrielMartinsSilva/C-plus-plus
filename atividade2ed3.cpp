@@ -87,7 +87,16 @@ public:
 int main()
 {
     string nome;
+<<<<<<< Updated upstream
 	lista alunos("Gabriel");    
+=======
+	lista alunos;
+	lista gabriel;
+		
+	gabriel = new lista();
+	
+	gabriel.inserirInicio("marvin");    
+>>>>>>> Stashed changes
     cout << "Digite o nome que você deseja inserir no inicio da lista" << endl;  
     while(cin >> nome != 0){     
     alunos.inserirInicio(nome);

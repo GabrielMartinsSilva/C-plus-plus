@@ -36,7 +36,7 @@ int main(int argc, char** argv)
 			cout << "Opcao invalida!!";
 		if(op == 1)
 		{
-			cout << "Digie o numero aser inserido no inicio da lista:";
+			cout << "Digite o numero a ser inserido no inicio da lista:";
 			celula *novo = new celula;
 			cin>>novo->num;
 			if(inicio==NULL)
@@ -137,6 +137,11 @@ int main(int argc, char** argv)
 					
 				}
 			}
+			
+			if(op == 5){
+				inicio = NULL;
+			}
+			
 		
 		Sleep(2000);
 		system("cls");
