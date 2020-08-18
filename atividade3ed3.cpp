@@ -8,7 +8,7 @@ private:
 	string nome;
 	string sexo;
 	int idade;
-	bool bebe;
+	string bebe;
 	celula * proxima;
 public:
 	celula()
@@ -16,20 +16,20 @@ public:
 		proxima = NULL;		
 		//cout <<"Passou aqui 1";
 	}
-	celula(string n, string s, int i, bool bebe)
+	celula(string n, string s, int i, string b)
 	{
 		nome = n;
 		sexo = s;
 		idade = i;
-		bebe = bebe;
+		bebe = b;
 		//cout <<"Passou aqui 2";
 	}
-	celula(string n, string s, int i, bool bebe, celula *p)
+	celula(string n, string s, int i, string b, celula *p)
 	{
 		nome = n;
 		sexo = s;
 		idade = i;
-		bebe = bebe;
+		bebe = b;
 		proxima = p;
 		//cout <<"Passou aqui 3";
 	}
@@ -71,20 +71,20 @@ public:
 		idade = i;
 	}
 	
-	bool getBebe(){
+	string getBebe(){
 		return bebe;
 			
 	}
-	void setBebe(bool bebe){
-		bebe = bebe;
+	void setBebe(string b){
+		bebe = b;
 	}
 	
-	string Verifica(bool b){
-		cout << b;
-		if(b)
-			return "bebe";
-		else if(!b) return "não bebe";
-	}
+	// string Verifica(string bebe){
+	// 	cout << bebe;
+	// 	if(bebe == "bebe")
+	// 		return "bebe";
+	// 	else return "nao bebe";
+	// }
 };
 
 
@@ -112,22 +112,23 @@ public:
 		return inicio;
 	}
 
-	void inserirInicio(string n, string s, int i, bool bebe)
+	void inserirInicio(string n, string s, int i, string b)
 	{
 		celula *nova = new celula;
 		nova->setNome(n);
 		nova->setProxima(inicio);
 		nova->setSexo(s);
 		nova->setIdade(i);
-		nova->setBebe(bebe);
+		nova->setBebe(b);
 		inicio = nova;
 	}
 	
-	void inserirFim(string n, string s, int i, bool bebe)
+	void inserirFim(string n, string s, int i, string b)
 	{
+		
 		if(inicio == NULL)
 		{
-			inserirInicio(n, s, i, bebe);
+			inserirInicio(n, s, i, b);
 		}
 		else
 		{
@@ -136,7 +137,7 @@ public:
 			{
 				aux = aux->getProxima();
 			}
-			celula *nova = new celula(n, s, i, bebe, NULL);
+			celula *nova = new celula(n, s, i, b, NULL);
 			aux->setProxima(nova); 
 		}
 	}
@@ -155,7 +156,7 @@ public:
 			while(aux != NULL)
 			{
 				cout << aux->getNome() << " - " << aux->getSexo() << " - " 
-				<< aux->getIdade() << " - " << aux->Verifica(aux->getBebe()) <<endl;
+				<< aux->getIdade() << " - " << aux->getBebe() << endl;
 				
 				aux = aux->getProxima();
 			}
@@ -176,9 +177,9 @@ public:
 int main()
 {
 	lista listaAlunos;
-	listaAlunos.inserirInicio("Miguel", "Masculino", 25, true);
-	listaAlunos.inserirInicio("Joao", "Masculino", 26, false);
-	//listaAlunos.inserirFim("Jorge", 10);
+	listaAlunos.inserirInicio("Miguel", "Masculino", 25, "bebe");	
+	listaAlunos.inserirInicio("Joao", "Masculino", 26, "nao bebe");
+	listaAlunos.inserirFim("Jorge", "Feminino", 10, "bebe");
 	//listaAlunos.inserirFim("Ana", 9.8);
 	listaAlunos.imprimir();
 	return 0;
